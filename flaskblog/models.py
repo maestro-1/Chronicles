@@ -28,4 +28,4 @@ class Post(db.Model):
     user_id = db.Column(db.Integer(), db.ForeignKey(User.id), nullable=False)
 
     def __refr__(self):
-        return f"User({self.title},{self.date_posted})"
+        return f"Post({self.title},{self.date_posted})"

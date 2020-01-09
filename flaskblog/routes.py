@@ -7,30 +7,32 @@ from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm, Post
 from flask_login import login_user, current_user, logout_user, login_required
 from PIL import Image
 
-posts = [
-    {
-        'author': 'Onothoja marho',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
-    }
-]
+# posts = [
+#     {
+#         'author': 'Onothoja marho',
+#         'title': 'Blog Post 1',
+#         'content': 'First post content',
+#         'date_posted': 'April 20, 2018'
+#     },
+#     {
+#         'author': 'Jane Doe',
+#         'title': 'Blog Post 2',
+#         'content': 'Second post content',
+#         'date_posted': 'April 21, 2018'
+#     }
+# ]
 
 
 @app.route("/home")
 @app.route("/")
 def home_page():
+    # post = Post.filter_by().paginate(per_page=5)
+    posts = Post.query.all()
     return render_template("home.html", title='Home', posts=posts)
 
 
 @app.route("/about")
-def about_page():
+def about():
     return render_template("about.html", title='About')
 
 
@@ -106,7 +108,7 @@ def account():
                            image_file=image_file, form=form)
 
 
-@app.route("/post/new", methods=['POST'])
+@app.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
     form = PostForm()
