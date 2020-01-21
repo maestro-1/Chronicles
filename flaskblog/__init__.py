@@ -14,9 +14,13 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
-from flaskblog import routes
+from flaskblog.main.routes import main
+from flaskblog.Users.routes import users
+from flaskblog.Posts.routes import posts
 
+
+app.register_blueprint(main)
+app.register_blueprint(users)
+app.register_blueprint(posts)
 
 # https://www.youtube.com/watch?v=qWYw_Bd1FHo
-# https://github.com/CoreyMSchafer/code_snippets/tree/master/Python/Flask_Blog/07-User-Account-Profile-Pic/flaskblog
-# https://www.peopleperhour.com/freelancer/admin/ahmed_yar-abbasi-web-development-web-scraping-email-xajnyqj

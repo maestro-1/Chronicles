@@ -3,17 +3,15 @@ import secrets
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flaskblog import app, db, bcrypt
 from flaskblog.models import User
-from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from flaskblog.Users.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from flask_login import login_user, current_user, logout_user, login_required
 from PIL import Image
 
 
-@app.route("/about")
-def about():
-    return render_template("about.html", title='About')
+users = Blueprint('users', __name__)
 
 
-@app.route("/register", methods=["GET", 'POST'])
+@users.route("/register", methods=["GET", 'POST'])
 def Sign_Up():
     if current_user.is_authenticated:
         redirect(url_for(home_page))
@@ -28,7 +26,7 @@ def Sign_Up():
     return render_template("register.html", title='register', form=form)
 
 
-@app.route("/login", methods=["GET", "POST"])
+@users.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
         redirect(url_for(home_page))
@@ -44,7 +42,7 @@ def login():
     return render_template("login.html", form=form)
 
 
-@app.route("/logout")
+@users.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("home_page"))
@@ -64,7 +62,7 @@ def save_picture(form_picture):
     return picture_fn
 
 
-@app.route("/account", methods=['GET', 'POST'])
+@users.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
     form = UpdateAccountForm()

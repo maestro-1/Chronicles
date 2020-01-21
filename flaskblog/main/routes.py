@@ -2,9 +2,11 @@ from flaskblog import app
 from flaskblog.models import Post
 from flask import render_template, Blueprint
 
+main = Blueprint('main', __name__)
 
-@app.route("/home")
-@app.route("/")
+
+@main.route("/home")
+@main.route("/")
 def home_page():
     # post = Post.filter_by().paginate(per_page=5)
     posts = Post.query.all()
