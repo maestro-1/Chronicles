@@ -78,4 +78,4 @@ celerybeat-schedule
 .env
 .flaskenv
 .db
-static/
+profile_pics/
