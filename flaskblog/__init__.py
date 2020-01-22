@@ -17,10 +17,11 @@ login_manager.login_message_category = 'info'
 from flaskblog.main.routes import main
 from flaskblog.Users.routes import users
 from flaskblog.Posts.routes import posts
+from flaskblog.errors.handlers import errors
 
 
 app.register_blueprint(main)
 app.register_blueprint(users)
 app.register_blueprint(posts)
-
+app.register_blueprint(errors)
 # https://www.youtube.com/watch?v=qWYw_Bd1FHo
