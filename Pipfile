@@ -12,7 +12,9 @@ flask-bcrypt = "*"
 flask-login = "*"
 pillow = "*"
 flask-wtf = "*"
-flask-test = "*"
+psycopg2-binary = "*"
+flask-testing = "*"
+blinker = "*"
 
 [requires]
 python_version = "3.6"
