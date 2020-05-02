@@ -38,7 +38,7 @@ class Post(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     title = db.Column(db.String(20), nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    content = db.Column(db.String(1000), nullable=False)
+    content = db.Column(db.String(120000), nullable=False)
     user_id = db.Column(db.Integer(), db.ForeignKey(User.id), nullable=False)
 
     def __refr__(self):
