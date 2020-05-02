@@ -17,6 +17,8 @@ flask-testing = "*"
 blinker = "*"
 flask-mail = "*"
 email-validator = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.6"
