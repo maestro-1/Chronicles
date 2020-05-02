@@ -5,48 +5,43 @@ from flaskblog.models import User
 
 
 class BasicTestsCase(BaseTestCase):
-    def test_correct_login_1(self):
-        with self.client:
-            self.client.post(
-                '/login',
-                data=dict(username='eye of ron', password='valeria@31'),
-            )
-            self.assert_template_used('login.html')
-            user1 = User.query.get(1)
-            self.assertEqual('eye of ron', user1.username)
-            self.assertEqual(user1.password, 'valeria@31')
-            self.assertNotEqual(user1.password, 'millies')
-
-    def test_correct_login_2(self):
-        with self.client:
-            self.client.post(
-                '/login',
-                data=dict(username='eye of ron', password='valeria@31'),
-            )
-            self.assert_template_used('login.html')
-            user2 = User.query.get(2)
-            self.assertEqual('eye candy', user2.username)
-            self.assertNotEqual(user2.password, 'valeria@31')
-
-    def test_wrong_login(self):
+    def test_first_correct_login_1(self):
         with self.client:
             response = self.client.post(
                 '/login',
-                data=dict(username='millies', password='admin')
+                content_type='multipart/form-data',
+                data=dict(email='ruon85@gmail.com', password='valeria@31')
+                # follow_redirects=True
             )
-            self.assert200(response)
-            self.assertIn(b'<legend class="border-bottom mb-4">Log In</legend>',
-                          response.data)
-            self.assertIn(b'<label class="form-check-label" for="remember">Remember Me</label>',
-                          response.data)
             self.assert_template_used('login.html')
+            print(current_user.is_authenticated)
 
-    def test_logout(self):
-        with self.client:
-            response = self.client.get('/logout')
-            self.assert_redirects(response=response, location='/')
-            self.assertFalse(current_user.is_authenticated)
+#     def test_second_correct_login(self):
+#         with self.client:
+#             self.client.post(
+#                 '/login',
+#                 data=dict(username='eye of ron', password='valeria@31'),
+#             )
+#             self.assert_template_used('login.html')
+#             user2 = User.query.get(2)
+#             self.assertEqual('eye candy', user2.username)
+#             self.assertNotEqual(user2.password, 'valeria@31')
+
+#     def test_invalid_username_login(self):
+#         with self.client:
+#             response = self.client.post(
+#                 '/login',
+#                 data=dict(username='millies', password='admin')
+#             )
+#             user = User.query.filter_by(username='millies').first()
+#             self.assertEqual(user, None)
+
+#     def test_logout(self):
+#         with self.client:
+#             response = self.client.get('/logout')
+#             self.assert_redirects(response=response, location='/')
+#             self.assertFalse(current_user.is_authenticated)
 
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
