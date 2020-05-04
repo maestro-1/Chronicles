@@ -18,5 +18,10 @@ def create_tables():
     db.create_all()
 
 
+@manager.command
+def delete_tables():
+    db.drop_all()
+
+
 if __name__ == '__main__':
     manager.run()

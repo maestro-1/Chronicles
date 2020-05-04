@@ -19,6 +19,7 @@ flask-mail = "*"
 email-validator = "*"
 gunicorn = "*"
 psycopg2 = "*"
+flask-migrate = "*"
 
 [requires]
 python_version = "3.6"
