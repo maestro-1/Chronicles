@@ -1,0 +1,55 @@
+[2020-05-13 20:35:00,672 INFO root] Taurus CLI Tool v1.14.2
+[2020-05-13 20:35:00,673 DEBUG root] Command-line options: {'log': '/tmp/bzt_4i7d_k5b.log', 'option': None, 'quiet': None, 'verbose': None, 'no_system_configs': None, 'aliases': []}
+[2020-05-13 20:35:00,673 DEBUG root] Python: CPython 3.6.9
+[2020-05-13 20:35:00,673 DEBUG root] OS: uname_result(system='Linux', node='maestroinc-HP-EliteBook-840-G2', release='4.15.0-54-generic', version='#58-Ubuntu SMP Mon Jun 24 10:55:24 UTC 2019', machine='x86_64', processor='x86_64')
+[2020-05-13 20:35:00,674 INFO root] Starting with configs: []
+[2020-05-13 20:35:00,674 DEBUG root] Using personal config: /home/maestroinc/.bzt-rc
+[2020-05-13 20:35:00,674 INFO Engine] Configuring...
+[2020-05-13 20:35:00,752 DEBUG Engine] Base configs list: ['/home/maestroinc/.local/lib/python3.6/site-packages/bzt/resources/10-base-config.yml']
+[2020-05-13 20:35:00,752 DEBUG Engine.Configuration] Configs: ['/home/maestroinc/.local/lib/python3.6/site-packages/bzt/resources/10-base-config.yml']
+[2020-05-13 20:35:00,753 DEBUG Engine.Configuration] Reading /home/maestroinc/.local/lib/python3.6/site-packages/bzt/resources/10-base-config.yml as YAML
+[2020-05-13 20:35:00,779 DEBUG Engine] User configs list: ['/home/maestroinc/.bzt-rc']
+[2020-05-13 20:35:00,779 DEBUG Engine.Configuration] Configs: ['/home/maestroinc/.bzt-rc']
+[2020-05-13 20:35:00,780 DEBUG Engine.Configuration] Reading /home/maestroinc/.bzt-rc as YAML
+[2020-05-13 20:35:00,785 DEBUG Engine.Configuration] Configs: ['/home/maestroinc/.bzt-rc']
+[2020-05-13 20:35:00,786 DEBUG Engine.Configuration] Reading /home/maestroinc/.bzt-rc as YAML
+[2020-05-13 20:35:00,790 DEBUG Engine] Requesting updates info: https://gettaurus.org/updates/?version=1.14.2&installID=linux-648099a010c7
+[2020-05-13 20:35:00,790 INFO Engine] Artifacts dir: /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776
+[2020-05-13 20:35:00,790 DEBUG HTTPClient] Making HTTP request GET https://gettaurus.org/updates/?version=1.14.2&installID=linux-648099a010c7
+[2020-05-13 20:35:00,791 DEBUG Engine] New artifact filename: /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/effective
+[2020-05-13 20:35:00,792 DEBUG Engine.Configuration] Dumping YAML config into /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/effective.yml
+[2020-05-13 20:35:00,811 DEBUG urllib3.connectionpool] Starting new HTTPS connection (1): gettaurus.org
+[2020-05-13 20:35:00,813 DEBUG Engine.Configuration] Dumping JSON config into /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/effective.json
+[2020-05-13 20:35:00,815 DEBUG root] Closing log handler: /tmp/bzt_4i7d_k5b.log
+[2020-05-13 20:35:00,816 DEBUG root] Switched writing logs to /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/bzt.log
+[2020-05-13 20:35:00,816 DEBUG root] Linting config
+[2020-05-13 20:35:00,819 INFO Engine] Preparing...
+[2020-05-13 20:35:00,820 DEBUG Engine] Module config: consolidator {'class': 'bzt.modules.aggregator.ConsolidatingAggregator'}
+[2020-05-13 20:35:00,821 DEBUG root] Importing module: bzt.modules.aggregator
+[2020-05-13 20:35:01,211 DEBUG root] Loading class: 'ConsolidatingAggregator' from <module 'bzt.modules.aggregator' from '/home/maestroinc/.local/lib/python3.6/site-packages/bzt/modules/aggregator.py'>
+[2020-05-13 20:35:01,212 DEBUG Engine.consolidator] Buffer scaling setup: percentile 95.0 from [0.0, 50.0, 90.0, 95.0, 99.0, 99.9, 100.0] selected
+[2020-05-13 20:35:01,212 DEBUG Engine] Module config: monitoring {'class': 'bzt.modules.monitoring.Monitoring'}
+[2020-05-13 20:35:01,212 DEBUG root] Importing module: bzt.modules.monitoring
+[2020-05-13 20:35:01,216 DEBUG root] Loading class: 'Monitoring' from <module 'bzt.modules.monitoring' from '/home/maestroinc/.local/lib/python3.6/site-packages/bzt/modules/monitoring.py'>
+[2020-05-13 20:35:01,216 DEBUG Engine] Module config: local {'class': 'bzt.modules.provisioning.Local'}
+[2020-05-13 20:35:01,216 DEBUG root] Importing module: bzt.modules.provisioning
+[2020-05-13 20:35:01,216 DEBUG root] Loading class: 'Local' from <module 'bzt.modules.provisioning' from '/home/maestroinc/.local/lib/python3.6/site-packages/bzt/modules/provisioning.py'>
+[2020-05-13 20:35:01,217 ERROR root] Config Error: No 'execution' is configured. Did you forget to pass config files?
+[2020-05-13 20:35:01,219 DEBUG root] TaurusConfigError: No 'execution' is configured. Did you forget to pass config files?
+  File "/home/maestroinc/.local/lib/python3.6/site-packages/bzt/cli.py", line 258, in perform
+    self.engine.prepare()
+  File "/home/maestroinc/.local/lib/python3.6/site-packages/bzt/engine/engine.py", line 195, in prepare
+    self.__prepare_provisioning()
+  File "/home/maestroinc/.local/lib/python3.6/site-packages/bzt/engine/engine.py", line 591, in __prepare_provisioning
+    self.provisioning.prepare()
+  File "/home/maestroinc/.local/lib/python3.6/site-packages/bzt/modules/provisioning.py", line 70, in prepare
+    super(Local, self).prepare()
+  File "/home/maestroinc/.local/lib/python3.6/site-packages/bzt/engine/modules.py", line 129, in prepare
+    raise exc
+[2020-05-13 20:35:01,219 INFO Engine] Post-processing...
+[2020-05-13 20:35:01,219 DEBUG Engine.consolidator] Consolidator buffer[0]: dict_keys([])
+[2020-05-13 20:35:01,220 DEBUG Engine.Configuration] Dumping YAML config into /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/effective.yml
+[2020-05-13 20:35:01,238 DEBUG Engine.Configuration] Dumping JSON config into /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/effective.json
+[2020-05-13 20:35:01,239 INFO root] Artifacts dir: /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776
+[2020-05-13 20:35:01,239 WARNING root] Done performing with code: 1
+[2020-05-13 20:35:01,240 DEBUG root] Closing log handler: /home/maestroinc/Documents/projects/flaskblog/2020-05-13_20-35-00.790776/bzt.log
